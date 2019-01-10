@@ -1,0 +1,38 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$120000$FqM61YIZJ9dN$G+ogyzF0g71eaiIfy12yZhLrlNTwUfKfItItF7kGHhs=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "manager@stratis.com",
+      "first_name": "Manager",
+      "last_name": "User",
+      "email": "customer@booking.mx",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2018-02-07T01:49:55.961Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$120000$PbfQbr4UHeHc$irtYvqFIcTzmH9gcOeLGRA1PEJQl+YPaDc6lXSnXEas=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "user@stratis.com",
+      "first_name": "Regular",
+      "last_name": "User",
+      "email": "user@stratis.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-02-07T01:49:55.961Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
