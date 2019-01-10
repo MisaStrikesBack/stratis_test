@@ -1,0 +1,39 @@
+<div class="form-group">
+  <h5 class="card-title">{{view.title}}</h5>
+  <div class="">
+    {% for error in form.errors.name%}
+    <p class="text-danger mb-0">{{error}}</p>
+    {% endfor %}
+    <label for="">Nombre</label>
+    <input class="form-control" type="text" name="name" value="{{form.name.value|default:''}}">
+  </div>
+  <div class="">
+    {% for error in form.errors.age%}
+    <p class="text-danger mb-0">{{error}}</p>
+    {% endfor %}
+    <label for="">Edad</label>
+    <input class="form-control" type="text" name="age" value="{{form.age.value|default:''}}">
+  </div>
+  <div class="">
+    {% for error in form.errors.gender%}
+    <p class="text-danger mb-0">{{error}}</p>
+    {% endfor %}
+    <label for="">Género</label>
+    <select class="form-control" name="gender">
+      {% for x,y in form.fields.gender.choices %}
+      <option value="{{ x }}" {% if form.gender.value == x %} selected {% endif %}>{{ y }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="">
+    {% for error in form.errors.species%}
+    <p class="text-danger mb-0">{{error}}</p>
+    {% endfor %}
+    <label for="">Especie</label>
+    <select class="form-control" name="species">
+      {% for x,y in form.fields.species.choices %}
+      <option value="{{ x }}" {% if form.species.value == x|slugify or form.species.value == x %} selected {% endif %}>{{ y }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>

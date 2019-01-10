@@ -7,7 +7,9 @@ from django.contrib.auth import views as auth_views
 
 from stratis_web.views import (
     DashboardView, SpeciesListView, HerbListView, CarnListView,
-    SpeciesDetailView, AnimalDetailView)
+    SpeciesDetailView, AnimalDetailView, SpeciesCreationView,
+    AnimalCreationView, SpeciesUpdateView, AnimalUpdateView, SpeciesDeleteView,
+    AnimalDeleteView)
 
 app_name = "stratis_web"
 
@@ -27,6 +29,15 @@ animals_patterns = ([
     path('<int:pk>/', SpeciesDetailView.as_view(), name='detail'),
     path('animal/<int:pk>/', AnimalDetailView.as_view(),
          name='animal-detail'),
+    path('create/', SpeciesCreationView.as_view(), name='create'),
+    path('animal/create/', AnimalCreationView.as_view(),
+         name='animal-create'),
+    path('update/<int:pk>/', SpeciesUpdateView.as_view(), name='update'),
+    path('animal/update/<int:pk>/', AnimalUpdateView.as_view(),
+         name='animal-update'),
+    path('delete/<int:pk>/', SpeciesDeleteView.as_view(), name='delete'),
+    path('animal/delete/<int:pk>/', AnimalDeleteView.as_view(),
+         name='animal-delete'),
 ], 'species')
 
 urlpatterns = [

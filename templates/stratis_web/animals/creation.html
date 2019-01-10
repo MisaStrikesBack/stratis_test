@@ -1,0 +1,21 @@
+{% extends "stratis_web/base.html" %}
+  {% block content %}
+  <div class="jumbotron">
+    <h1 class="display-4">{{ view.title }}</h1>
+  </div>
+  <div class="container d-flex justify-content-center">
+    <form class="" action="" method="post">
+      {% csrf_token %}
+      <div class="card">
+        <div class="card-body">
+          {% if 'animal' in request.path %}
+            {% include 'stratis_web/animals/animal-form.html' %}
+          {% else %}
+            {% include 'stratis_web/animals/species-form.html' %}
+          {% endif %}
+        </div>
+        <input class="btn btn-primary p-1" type="submit" name="" value="Crear">
+      </div>
+    </form>
+  <div>
+  {% endblock %}
