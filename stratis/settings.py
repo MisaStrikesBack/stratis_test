@@ -122,3 +122,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Covers regular testing and django-coverage
+if 'test' in sys.argv or 'test_coverage' in sys.argv:
+    STATICFILES_STORAGE = None
+
+# Forcing https in deployment
+if os.environ.get('ENABLE_HTTPS'):
+    SECURE_SSL_REDIRECT = True
