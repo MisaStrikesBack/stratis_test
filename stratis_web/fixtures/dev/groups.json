@@ -1,16 +1,16 @@
 [
   {
-    "model": "api.group",
+    "model": "stratis_web.group",
     "pk": 1,
     "fields": {
-      "name": "Herbivorous"
+      "name": "Hervíboros"
     }
   },
   {
-    "model": "api.group",
+    "model": "stratis_web.group",
     "pk": 2,
     "fields": {
-      "name": "Carnivorous"
+      "name": "Carnívoros"
     }
   }
 ]

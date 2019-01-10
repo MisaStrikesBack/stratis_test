@@ -1,0 +1,16 @@
+{% extends "stratis_web/base.html" %}
+  {% block content %}
+    <div class="jumbotron">
+      <h1 class="display-4">{{ view.title }}</h1>
+    </div>
+    <div class="container">
+      {% for specie in species %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <a href="{% url 'web:species:detail' specie.pk %}" class="card-link" style="font-weight: 600;font-size:20px;" >{{ specie.name }}</a>
+          <h6 class="card-subtitle mb-2 text-muted">Ejemplares: {{ specie.get_animals_number }}</h6>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  {% endblock %}
