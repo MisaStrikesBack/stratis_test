@@ -1,0 +1,28 @@
+<div class="form-group">
+  <h5 class="card-title">{{ view.title }}</h5>
+  <div class="">
+    {% for error in form.errors.name%}
+    <p class="text-danger mb-0">{{error}}</p>
+    {% endfor %}
+    <label for="">Nombre</label>
+    <input class="form-control" type="text" name="name" value="{{form.name.value|default:''}}">
+  </div>
+  <div class="">
+    {% for error in form.errors.scientific_name%}
+    <p class="text-danger mb-0">{{error}}</p>
+    {% endfor %}
+    <label for="">Nombre Cientifico</label>
+    <input class="form-control" type="text" name="scientific_name" value="{{form.scientific_name.value|default:''}}">
+  </div>
+  <div class="">
+    {% for error in form.errors.group%}
+    <p class="text-danger mb-0">{{error}}</p>
+    {% endfor %}
+    <label for="">Grupo</label>
+    <select class="form-control" name="group">
+      {% for x,y in form.fields.group.choices %}
+      <option value="{{ x }}" {% if form.group.value == x|slugify or form.group.value == x %} selected {% endif %}>{{ y }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>

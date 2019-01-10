@@ -1,0 +1,24 @@
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">Eliminación de {{ view.modal_title }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{ view.modal_message }}</p>
+        <p>Estás seguro que quieres proceder con el borrado?</p>
+      </div>
+      <div class="modal-footer">
+        <form class="" action="{% url view.delete_target view.object.pk %}" method="post">
+          {% csrf_token %}
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <input type="submit" class="btn btn-primary" name="" value="Borrar">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

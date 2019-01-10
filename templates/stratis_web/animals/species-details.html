@@ -9,10 +9,19 @@
         <div class="col-12">
           <h5 class="card-title">Información de la especie</h5>
           <div class="card">
-            <div class="card-body">
-              <h6 class="card-subtitle mb-2">Nombre: <span class="text-muted">{{ species.name }}</span></h6>
-              <h6 class="card-subtitle mb-2">Nombre Científico: <span class="text-muted">{{ species.scientific_name }}</span></h6>
-              <h6 class="card-subtitle mb-2">Grupo: <span class="text-muted">{{ species.group.name }}</span></h6>
+            <div class="card-body row">
+              <div class="col-9">
+                <h6 class="card-subtitle mb-2">ID: <span class="text-muted">{{ species.pk }}</span></h6>
+                <h6 class="card-subtitle mb-2">Nombre: <span class="text-muted">{{ species.name }}</span></h6>
+                <h6 class="card-subtitle mb-2">Nombre Científico: <span class="text-muted">{{ species.scientific_name }}</span></h6>
+                <h6 class="card-subtitle mb-2">Grupo: <span class="text-muted">{{ species.group.name }}</span></h6>
+              </div>
+              {% if user.is_staff %}
+                <div class="col-3">
+                  <a class="btn btn-primary" href="{% url 'web:species:update' species.pk %}">Editar</a>
+                  <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Eliminar</button>
+                </div>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -30,4 +39,5 @@
         </div>
       </div>
     </div>
+    {% include 'stratis_web/modals/deletion-modal.html'%}
   {% endblock %}

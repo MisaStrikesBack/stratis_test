@@ -14,6 +14,9 @@ class Group(models.Model):
     """
     name = models.CharField(max_length=40)
 
+    def __str__(self):
+        return self.name
+
 
 class Species(models.Model):
     """
@@ -23,6 +26,9 @@ class Species(models.Model):
     scientific_name = models.CharField(max_length=80)
     group = models.ForeignKey(Group, related_name="species",
                               on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
 
     def get_animals_number(self):
         return self.animals.all().count()
