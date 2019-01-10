@@ -60,8 +60,12 @@ class SpeciesUpdateView(StaffRequiedMixin, UpdateView):
     title = "Edición de Especie"
     model = Species
     form_class = SpeciesForm
-    success_url = reverse_lazy('web:species:all')
     template_name = "stratis_web/animals/creation.html"
+
+    def get_success_url(self):
+        return reverse_lazy(
+            'web:species:detail',
+            kwargs={'pk': self.object.pk})
 
 
 class SpeciesDeleteView(StaffRequiedMixin, DeleteView):
@@ -88,8 +92,12 @@ class AnimalUpdateView(StaffRequiedMixin, UpdateView):
     title = "Edición de Ejemplar"
     model = Animal
     form_class = AnimalForm
-    success_url = reverse_lazy('web:species:all')
     template_name = "stratis_web/animals/creation.html"
+
+    def get_success_url(self):
+        return reverse_lazy(
+            'web:species:animal-detail',
+            kwargs={'pk': self.object.pk})
 
 
 class AnimalDeleteView(StaffRequiedMixin, DeleteView):

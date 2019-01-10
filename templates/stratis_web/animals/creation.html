@@ -14,7 +14,7 @@
             {% include 'stratis_web/animals/species-form.html' %}
           {% endif %}
         </div>
-        <input class="btn btn-primary p-1" type="submit" name="" value="Crear">
+        <input class="btn btn-primary p-1" type="submit" name="" value="{% if 'create' in request.path %} Crear {% else %} Actualizar {% endif %}">
       </div>
     </form>
   <div>
