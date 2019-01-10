@@ -1,0 +1,30 @@
+{% extends "stratis_web/base.html" %}
+{% block content %}
+  <div class="container">
+    <div class="card">
+      <form  style="margin: 0 auto; float: none; margin-bottom: 10px;" method="post" action="{% url 'web:auth:login' %}" id="login_form">
+        <h3>Inicio de Sesión</h3>
+        {% csrf_token %}
+        {% if form.errors%}
+          <div>
+            <p class="separation-text text-color-cancel">El correo o la contraseña son incorrectos</p>
+          </div>
+        {% endif %}
+        <div class="form-group">
+          <p>{{ form.errors.username }}</p>
+          <label for="exampleInputEmail1">Usuario</label>
+          <input class="form-control" type="email" name="username" id="username" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <p>{{ form.errors.password }}</p>
+          <label for="exampleInputPassword1">Contraseña</label>
+          <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="container">
+          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+          <a class="btn btn-primary" href="{% url 'web:dashboard'%}">Volver</a>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
