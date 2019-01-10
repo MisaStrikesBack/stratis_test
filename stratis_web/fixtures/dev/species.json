@@ -1,0 +1,20 @@
+[
+  {
+    "model": "stratis_web.species",
+    "pk": 1,
+    "fields": {
+      "name": "Perro",
+      "scientific_name": "Canus Lupus",
+      "group": 2
+    }
+  },
+  {
+    "model": "stratis_web.species",
+    "pk": 2,
+    "fields": {
+      "name": "Gato",
+      "scientific_name": "Felis catus",
+      "group": 2
+    }
+  }
+]

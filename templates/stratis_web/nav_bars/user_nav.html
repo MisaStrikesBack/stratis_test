@@ -4,6 +4,15 @@
       <a class="navbar-brand" href="{% url 'web:dashboard' %}">Stratis</a>
     </div>
     <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'web:species:all' %}">Todos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'web:species:carns' %}">Carnivoros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'web:species:herbs' %}">Herviboros</a>
+      </li>
       {%if user.is_authenticated  %}
       <li class="nav-item">
         <a class="nav-link active" href="">{{ user.get_full_name }}</a>

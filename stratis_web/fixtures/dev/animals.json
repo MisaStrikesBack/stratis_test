@@ -1,0 +1,22 @@
+[
+  {
+    "model": "stratis_web.animal",
+    "pk": 1,
+    "fields": {
+      "name": "Rufus",
+      "age": 1,
+      "gender": "M",
+      "species": 1
+    }
+  },
+  {
+    "model": "stratis_web.animal",
+    "pk": 2,
+    "fields": {
+      "name": "Pelusa",
+      "age": 3,
+      "gender": "F",
+      "species": 2
+    }
+  }
+]

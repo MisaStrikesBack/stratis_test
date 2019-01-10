@@ -1,0 +1,33 @@
+{% extends "stratis_web/base.html" %}
+  {% block content %}
+    <div class="jumbotron">
+      <h1 class="display-4">{{ species.name }}</h1>
+      <h6>{{ species.scientific_name }}</h6>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="card-title">Información de la especie</h5>
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2">Nombre: <span class="text-muted">{{ species.name }}</span></h6>
+              <h6 class="card-subtitle mb-2">Nombre Científico: <span class="text-muted">{{ species.scientific_name }}</span></h6>
+              <h6 class="card-subtitle mb-2">Grupo: <span class="text-muted">{{ species.group.name }}</span></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="card-title mt-3 mb-3">Ejemplares</h3>
+          {% for animal in view.get_animals %}
+          <div class="card mb-3">
+            <div class="card-body">
+              <a href="{% url 'web:species:animal-detail' animal.pk %}" class="card-link" style="font-weight: 600;font-size:20px;" >{{ animal.name }}</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endblock %}
